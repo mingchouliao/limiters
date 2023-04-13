@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/go-redis/redis/v8"
 	"github.com/pkg/errors"
-	"github.com/redis/go-redis/v9"
 )
 
 // ConcurrentBufferBackend wraps the Add and Remove methods.
@@ -127,7 +127,7 @@ func (c *ConcurrentBufferRedis) Add(ctx context.Context, key string) (int64, err
 			// Remove expired items.
 			now := c.clock.Now()
 			pipeliner.ZRemRangeByScore(ctx, c.key, "-inf", fmt.Sprintf("%d", now.Add(-c.ttl).UnixNano()))
-			pipeliner.ZAdd(ctx, c.key, redis.Z{
+			pipeliner.ZAdd(ctx, c.key, &redis.Z{
 				Score:  float64(now.UnixNano()),
 				Member: key,
 			})
