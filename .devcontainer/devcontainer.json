@@ -1,0 +1,104 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go
+{
+	"name": "Go",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// general settings
+				"editor.guides.bracketPairs": "active",
+				"files.eol": "\n",
+				"files.trimTrailingWhitespace": true,
+				"files.insertFinalNewline": true,
+				"markdownlint.config": {
+					"MD013": false,
+					"MD024": false,
+					"MD025": false,
+					"MD029": false
+				},
+				"markdown-preview-enhanced.mermaidTheme": "default",
+				"markdown-preview-enhanced.liveUpdate": true,
+				"markdown.extension.toc.levels": "2..6",
+				"[markdown]": {
+					"editor.wordWrap": "off",
+					"editor.quickSuggestions": {
+						"comments": "off",
+						"strings": "off",
+						"other": "off"
+					}
+				},
+				"todo-tree.filtering.ignoreGitSubmodules": true,
+				"todo-tree.general.enableFileWatcher": true,
+				"todo-tree.filtering.excludeGlobs": [
+					"**/vendor/**",
+					"**/node_modules/**",
+				],
+				"todo-tree.general.tags": [
+					"BUG",
+					"FIXME",
+					"TODO",
+					"[ ]",
+					"[x]"
+				],
+				"todo-tree.highlights.customHighlight": {
+					"BUG": {
+						"foreground": "white",
+						"background": "#FF2D00",
+						"iconColour": "#FF2D00"
+					},
+					"FIXME": {
+						"foreground": "white",
+						"background": "#F06292",
+						"iconColour": "#F06292"
+					},
+					"TODO": {
+						"foreground": "white",
+						"background": "#FFBD2A",
+						"iconColour": "#FFBD2A"
+					}
+				},
+				"todo-tree.highlights.defaultHighlight": {
+					"foreground": "white",
+					"background": "grey",
+					"iconColour": "grey",
+					"type": "tag"
+				},
+				"todo-tree.tree.expanded": true,
+				"todo-tree.tree.flat": true,
+				"todo-tree.tree.showCountsInTree": true,
+				"todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+			},
+			"extensions": [
+				// general extensions
+				"eamodio.gitlens",
+				"edonet.vscode-command-runner",
+				"eriklynd.json-tools",
+				"redhat.vscode-yaml",
+				"yzhang.markdown-all-in-one",
+				"shd101wyy.markdown-preview-enhanced",
+				"Gruntfuggly.todo-tree"
+			]
+		}
+	},
+	"remoteUser": "root",
+	"runArgs": [
+		// For sharing GPG keys between container and host.
+		"-v",
+		"${localEnv:HOME}${localEnv:USERPROFILE}/.gnupg/private-keys-v1.d:/root/.gnupg/private-keys-v1.d",
+		"-v",
+		"${localEnv:HOME}${localEnv:USERPROFILE}/.gnupg/pubring.kbx:/root/.gnupg/pubring.kbx",
+		"-v",
+		"${localEnv:HOME}${localEnv:USERPROFILE}/.gnupg/trustdb.gpg:/root/.gnupg/trustdb.gpg"
+	],
+	"postCreateCommand": "chmod +x .devcontainer/postcreate.sh; ./.devcontainer/postcreate.sh",
+	"postStartCommand": "chmod +x .devcontainer/poststart.sh; ./.devcontainer/poststart.sh",
+	"features": {
+		"ghcr.io/devcontainers/features/aws-cli:1": {},
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {},
+		"ghcr.io/eitsupi/devcontainer-features/jq-likes:1": {},
+		"ghcr.io/guiyomh/features/vim:0": {}
+	}
+}
