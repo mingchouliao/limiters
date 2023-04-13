@@ -4,15 +4,16 @@ package examples
 import (
 	"context"
 	"fmt"
-	"google.golang.org/grpc/credentials/insecure"
 	"log"
 	"net"
 	"os"
 	"strings"
 	"time"
 
-	"github.com/redis/go-redis/v9"
-	"go.etcd.io/etcd/client/v3"
+	clientv3 "go.etcd.io/etcd/client/v3"
+	"google.golang.org/grpc/credentials/insecure"
+
+	"github.com/go-redis/redis/v8"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/peer"
