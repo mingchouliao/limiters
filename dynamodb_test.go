@@ -7,7 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
-	"github.com/mennanov/limiters"
+	"github.com/mingchouliao/limiters"
 	"github.com/pkg/errors"
 )
 
@@ -80,7 +80,6 @@ func DeleteTestDynamoDBTable(ctx context.Context, client *dynamodb.Client) error
 	_, err := client.DeleteTable(ctx, &dynamodb.DeleteTableInput{
 		TableName: aws.String(testDynamoDBTableName),
 	})
-
 	if err != nil {
 		return errors.Wrap(err, "delete test dynamodb table failed")
 	}

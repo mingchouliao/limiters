@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 
-	l "github.com/mennanov/limiters"
+	l "github.com/mingchouliao/limiters"
 )
 
 // fixedWindows returns all the possible FixedWindow combinations.

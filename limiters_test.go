@@ -21,7 +21,7 @@ import (
 	"github.com/stretchr/testify/suite"
 	clientv3 "go.etcd.io/etcd/client/v3"
 
-	l "github.com/mennanov/limiters"
+	l "github.com/mingchouliao/limiters"
 )
 
 type fakeClock struct {
@@ -194,7 +194,6 @@ func (s *LimitersTestSuite) TestLimitContextCancelled() {
 			case concurrentLimiter:
 				s.Error(lim.Limit(ctx, "key"), "%T", limiter)
 			}
-
 		}(limiter)
 		done2 := make(chan struct{})
 		go func(limiter interface{}) {

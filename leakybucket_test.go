@@ -7,7 +7,7 @@ import (
 
 	"github.com/google/uuid"
 
-	l "github.com/mennanov/limiters"
+	l "github.com/mingchouliao/limiters"
 )
 
 // leakyBuckets returns all the possible leakyBuckets combinations.

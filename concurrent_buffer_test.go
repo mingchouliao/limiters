@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/uuid"
 
-	l "github.com/mennanov/limiters"
+	l "github.com/mingchouliao/limiters"
 )
 
 func (s *LimitersTestSuite) concurrentBuffers(capacity int64, ttl time.Duration, clock l.Clock) []*l.ConcurrentBuffer {

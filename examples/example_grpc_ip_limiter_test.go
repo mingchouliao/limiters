@@ -19,8 +19,8 @@ import (
 	"google.golang.org/grpc/peer"
 	"google.golang.org/grpc/status"
 
-	"github.com/mennanov/limiters"
-	pb "github.com/mennanov/limiters/examples/helloworld"
+	"github.com/mingchouliao/limiters"
+	pb "github.com/mingchouliao/limiters/examples/helloworld"
 )
 
 func Example_ipGRPCLimiter() {
