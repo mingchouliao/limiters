@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/mennanov/limiters"
+	"github.com/mingchouliao/limiters"
 )
 
 func (s *LimitersTestSuite) useLock(lock limiters.DistLocker, shared *int, sleep time.Duration) {
